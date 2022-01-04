@@ -1,0 +1,67 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f2f4;
+}
+
+container {
+    max-width: 1240px;
+    padding: 0 15px;
+}
+
+.bg-dark {
+    background-color: rebeccapurple!important;
+}
+
+h1 {
+    margin: 25px auto;
+    text-align: center;
+}
+
+.link-quiz {
+    display: block;
+    margin: 20% auto;
+    text-align: center;
+    padding: 15px;
+    background-color: rebeccapurple;
+    width: 300px;
+    color: white;
+    border-radius: 10px;
+}
+
+.link-quiz:hover {
+    background-color: #572b82;
+    text-decoration: none;
+    color: white;
+}
+
+.form-group {
+    font-size: 24px;
+}
+
+.btn {
+    background-color: rebeccapurple;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.save {
+    background-color: #65c15d;
+}
+
+.end {
+    display: inline-block;
+    margin-left: 100%;
+}
+
+.card {
+    background-color: transparent;
+    border: none;
+    margin-left: 100%;
+    text-align: center;
+}
