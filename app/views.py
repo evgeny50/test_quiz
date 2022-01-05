@@ -1,16 +1,13 @@
-from django.shortcuts import redirect, render
-from django.contrib.auth import login, logout, authenticate
+from django.shortcuts import render
 from django.core.paginator import Paginator
-from django.http import HttpResponse
 
-from .forms import AddQuestionForm, CreateUserForm
 from .models import QuesModel
+
+ANSWER = {}
 
 
 def home(request):
     return render(request, 'app/home.html')
-
-ANSWER = {}
 
 
 def paginator(request):
@@ -23,10 +20,12 @@ def paginator(request):
     question = quiz_list[int(page_number) - 1]
     if page_number is None:
         question = quiz_list[0]
-    context = {'page_obj': page_obj,
-               'question': question,
-               'page_number': page_number
-               }
+
+    context = {
+        'page_obj': page_obj,
+        'question': question,
+        'page_number': page_number
+    }
 
     return context
 
@@ -49,11 +48,10 @@ def quiz(request):
 
 
 def count_result(request):
+    """Функция подсчета результата."""
     score = 0
     all_questions = QuesModel.objects.all()
     for num, obj in enumerate(all_questions):
-        print(obj.ans)
-        print(ANSWER[num])
         if obj.ans == ANSWER[num]:
             score += 1
     return render(request, 'app/result.html', {'score': score * 20})
